@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '../components/pages/Home/HelloWord'
+import Home from '../components/pages/Home/Home'
 import Concat from '../components/pages/Concat/Concat'
 import Cart from '../components/pages/Cart/Cart'
 import Mine from '../components/pages/Mine/Mine'
