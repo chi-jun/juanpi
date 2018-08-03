@@ -37,14 +37,14 @@ export default {
             font-size: 0.22rem;
             // color: #ccc;
         }
-        
+    
         a {
-            flex-grow: 1;
-            height: 100%;
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: space-around;
+        flex-grow: 1;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
             &.active {
                 color: $base-color;
             }

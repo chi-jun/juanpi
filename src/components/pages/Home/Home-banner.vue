@@ -37,18 +37,18 @@ export default {
         this.banners = res.data.adsInfo.slide_ads.config.slide
         Vue.nextTick(() => {
           new Swiper(this.$refs.el, {
-              pagination: {
-                el: '.swiper-pagination',
-                //点击下标切换
-                clickable: true,
-              },
-              lazy: true,
-              //自动切换
-              autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-              },
-              loop:true,
+            pagination: {
+              el: '.swiper-pagination',
+              //点击下标切换
+              clickable: true,
+            },
+            lazy: true,
+            //自动切换
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            loop:true,
           })
         })
       })
@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss" scoped>
   .concat{
+    display: flex;
     img{
       width: 100%;
       height: 1.6rem;
