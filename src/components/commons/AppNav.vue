@@ -1,6 +1,6 @@
 <template>
     <div class="app-nav">
-        <router-link active-class="active" exact :to = "{name: nav.name}" v-for = "nav in navs" :key = "nav.id">
+        <router-link active-class="active" :to = "nav.path" v-for = "nav in navs" :key = "nav.id">
             <i :class="'fa fa-' + nav.icon"></i>
             <span>{{nav.title}}</span>
         </router-link>
@@ -12,17 +12,17 @@ export default {
     data () {
         return {
             navs: [
-                { id: 1, title: '首页', icon: 'home', name: 'HelloWorld'},
-                { id: 2, title: '分类', icon: 'th-large', name: 'Concat'},
-                { id: 3, title: '购物车', icon: 'shopping-cart',name: 'Cart'},
-                { id: 4, title: '我的', icon: 'user-circle-o', name: 'Mine'}
+                { id: 1, title: '首页', icon: 'home', path:'/home'},
+                { id: 2, title: '分类照片', icon: 'th-large', path: '/Classify'},
+                { id: 3, title: '购物车', icon: 'shopping-cart',path: '/Cart'},
+                { id: 4, title: '我的', icon: 'user-circle-o', path: '/Mine'}
             ]
         }
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../stylesheets/_base.scss';
     .app-nav {
         position: fixed;
@@ -45,6 +45,7 @@ export default {
         flex-flow: column;
         align-items: center;
         justify-content: space-around;
+        color: #999;
             &.active {
                 color: $base-color;
             }

@@ -6,6 +6,6 @@
 </template>
 <script>
 export default {
-  name: 'mine'
+  name: 'Mine'
 }
 </script>

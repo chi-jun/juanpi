@@ -1,13 +1,26 @@
 <template>
-  <div ref="el" class="concat app-home-banner swiper-container">
-    <div class="swiper-wrapper">
-      <div v-for="(banner,i) in banners" :key="i" class="swiper-slide loading-img">
-        <img :src="banner.pic" alt="" class="swiper-lazy">
-        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+  <div class="concat">
+    <div ref="el" class="app-home-banner swiper-container">
+      <div class="swiper-wrapper">
+        <div v-for="(banner,i) in banners" :key="i" class="swiper-slide loading-img">
+          <img :src="banner.pic" alt="" class="swiper-lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+      </div>
+      <div class="swiper-pagination swiper-pagination-white"></div>
+    </div>
+    <div class="sc-iRbamj idVxVO">
+      <div v-for="(multi,i) in multis" :key="i">
+        <img :src="multi.child['0'].pic" alt="">
       </div>
     </div>
-    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="sc-iRbamj qykHL">
+      <img :src="cube.pic" alt="">
+    </div>
   </div>
+  <!-- data.adsInfo.block[""0""].multi_block[1].data[""0""].child[""0""].pic
+
+  data.adsInfo.block[""0""].multi_block[""0""].data[""0""].child[""0""].pic -->
 </template>
 
 
@@ -18,7 +31,9 @@ export default {
   name: 'app-concat',
   data () {
     return {
-      banners: []
+      banners: [],
+      multis: [],
+      cube: []
     }
   },
   methods: {
@@ -33,8 +48,10 @@ export default {
           catname: 'newest_zhe',
         }
       }).then(res => {
-        console.log(res)
         this.banners = res.data.adsInfo.slide_ads.config.slide
+        this.multis = res.data.adsInfo.block["0"].multi_block["0"].data
+        this.cube = res.data.adsInfo.block["0"].multi_block["1"].data["0"].child["0"]
+        // console.log(banners)
         Vue.nextTick(() => {
           new Swiper(this.$refs.el, {
             pagination: {
@@ -63,10 +80,36 @@ export default {
 <style lang="scss" scoped>
   .concat{
     display: flex;
-    img{
-      width: 100%;
-      height: 1.6rem;
+    flex-direction: column;
+    .app-home-banner{
+      margin: 0 0 ;
+      img{
+        width: 100%;
+        height: 1.6rem;
+      }
     }
+    .sc-iRbamj{
+      display: flex;
+      div{
+        flex: 25%;
+        height: 0.83rem;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .qykHL{
+      width: 100%;
+      height: 1.4rem;
+      margin-bottom:0.1rem;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    // .data.adsInfo.block["0"].multi_block["0"].data["0"].child["0"].pic
     
     
   }
